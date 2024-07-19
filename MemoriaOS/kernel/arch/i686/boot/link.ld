@@ -2,7 +2,7 @@ ENTRY(_start)
 
 SECTIONS
 {
-	. = 2M;
+	. = 0x080000;
 
 	.text BLOCK(4K) : ALIGN(4K)
 	{
@@ -10,8 +10,22 @@ SECTIONS
 		*(.text)
 	}
 
+    .init BLOCK(4K) : ALIGN(4K)
+    {
+        crtbegin.o (.init) crtend.o (.init)
+    }
+
+    .fini BLOCK(4K) : ALIGN(4K)
+    {
+        crtbegin.o (.fini) crtend.o (.fini)
+    }
+
 	.rodata BLOCK(4K) : ALIGN(4K)
 	{
+	    start_ctors = .;
+    	KEEP (*(SORT(.ctors*)))
+    	end_ctors = .;
+    	KEEP (*(SORT(.dtors*)))
 		*(.rodata)
 	}
 

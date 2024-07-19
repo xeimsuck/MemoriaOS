@@ -1,5 +1,5 @@
 # options
-set(CMAKE_CXX_FLAGS "-ffreestanding -O2 -Wall -Wextra -Werror -fno-exceptions -fno-rtti")
+set(CMAKE_CXX_FLAGS "-ffreestanding -O2 -Wall -fno-exceptions -fno-rtti")
 set(CMAKE_C_FLAGS "-std=gnu99 -ffreestanding -O2 -Wall -Wextra")
 set(CMAKE_EXE_LINKER_FLAGS "-T ${CMAKE_CURRENT_LIST_DIR}/${ARCH_DIR}/boot/link.ld -ffreestanding -O2 -nostdlib -nostdlib++ -lgcc")
 

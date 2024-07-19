@@ -3,6 +3,7 @@
 
 terminal::terminal(){
     init();
+    write("terminal::terminal\n");
 }
 
 void terminal::init(){
@@ -58,3 +59,5 @@ void terminal::clear(const char sym){
         }
     }
 }
+
+terminal tty;

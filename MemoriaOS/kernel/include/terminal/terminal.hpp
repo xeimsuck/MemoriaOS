@@ -26,6 +26,6 @@ private:
     uint16_t* terminal_buffer = nullptr;
 };
 
-inline terminal tty;
+extern terminal tty;
 
 #endif //MOS_KERNEL_TERMINAL_HPP

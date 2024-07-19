@@ -14,6 +14,5 @@
 #endif
 
 extern "C" void main(){
-    tty.init();
-    tty.write("MemoriaOS");
+    tty.write("Welcome to MemoriaOS\n");
 }

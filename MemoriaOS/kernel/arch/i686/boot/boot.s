@@ -1,17 +1,3 @@
-// Multiboot constants
-.set ALIGN, 1<<0
-.set MEMINFO, 1<<1
-.set FLAGS, ALIGN | MEMINFO
-.set MAGIC, 0x1BADB002
-.set CHECKSUM, -(MAGIC + FLAGS)
-
-// Multiboot section
-.section .multiboot
-.align 4
-.long MAGIC
-.long FLAGS
-.long CHECKSUM
-
 // Stack section
 .section .bss
 .align 16
@@ -26,6 +12,7 @@ stack_top:
 _start:
 
 mov $stack_top, %esp
+call __do_ctors
 call main
 
 cli
