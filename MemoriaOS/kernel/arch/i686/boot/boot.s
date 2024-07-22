@@ -12,9 +12,9 @@ stack_top:
 _start:
 
 mov $stack_top, %esp
-call mos_do_global_ctors
+call mos_init
 call main
-call mos_do_global_dtors
+call mos_fini
 
 cli
 1: hlt
