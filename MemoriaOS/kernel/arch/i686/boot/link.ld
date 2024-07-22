@@ -10,22 +10,19 @@ SECTIONS
 		*(.text)
 	}
 
-    .init BLOCK(4K) : ALIGN(4K)
+    .crt BLOCK(4K) : ALIGN(4K)
     {
-        crtbegin.o (.init) crtend.o (.init)
-    }
-
-    .fini BLOCK(4K) : ALIGN(4K)
-    {
-        crtbegin.o (.fini) crtend.o (.fini)
+        crtbegin.o crtend.o
     }
 
 	.rodata BLOCK(4K) : ALIGN(4K)
 	{
-	    start_ctors = .;
+	    mos_start_ctors = .;
     	KEEP (*(SORT(.ctors*)))
-    	end_ctors = .;
+    	mos_end_ctors = .;
+    	mos_start_dtors = .;
     	KEEP (*(SORT(.dtors*)))
+    	mos_end_dtors = .;
 		*(.rodata)
 	}
 
